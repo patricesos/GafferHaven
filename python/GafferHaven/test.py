@@ -1,11 +1,10 @@
-import ssl
-import urllib.request
-import json
+from utils import haven_api_query
 
 # import GafferHaven
 # import importlib
 # importlib.reload(GafferHaven)
 
+<<<<<<< Updated upstream
 def havenApiQuery(arguments):
 	user_agent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7'
 
@@ -29,3 +28,10 @@ def havenApiQuery(arguments):
 
 import havenAssetLibrary
 l = havenAssetLibrary.library()
+=======
+
+# print(haven_api_query("assets?t=hdris"))
+# print(haven_api_query("files/abandoned_church"))
+# print(haven_api_query("info/muddy_autumn_forest"))
+print(haven_api_query("categories/hdris"))
+>>>>>>> Stashed changes

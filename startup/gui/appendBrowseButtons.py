@@ -12,7 +12,13 @@ Gaffer.Metadata.registerValue(
 	GafferCycles.CyclesShader, "layout:customWidget:browseHDRI:widgetType", "GafferHaven.gui.BrowseButton",
 )
 Gaffer.Metadata.registerValue(
+<<<<<<< Updated upstream
 	GafferCycles.CyclesShader, "layout:customWidget:browseHDRI:section", "Settings",
+=======
+    GafferCycles.CyclesShader,
+    "layout:customWidget:browseHDRI:widgetType",
+    "GafferHaven.guiTest.BrowseButton",
+>>>>>>> Stashed changes
 )
 Gaffer.Metadata.registerValue(
 	GafferCycles.CyclesShader,
@@ -39,3 +45,26 @@ if "ARNOLD_ROOT" in os.environ:
 
 
 
+<<<<<<< Updated upstream
+=======
+    Gaffer.Metadata.registerValue(
+        GafferArnold.ArnoldShader,
+        "layout:activator:shaderIsImage",
+        lambda node: node["name"].getValue() == "image",
+    )
+    Gaffer.Metadata.registerValue(
+        GafferArnold.ArnoldShader,
+        "layout:customWidget:browseHDRI:widgetType",
+        "GafferHaven.guiTest.BrowseButton",
+    )
+    Gaffer.Metadata.registerValue(
+        GafferArnold.ArnoldShader,
+        "layout:customWidget:browseHDRI:section",
+        "Settings",
+    )
+    Gaffer.Metadata.registerValue(
+        GafferArnold.ArnoldShader,
+        "layout:customWidget:browseHDRI:visibilityActivator",
+        "shaderIsImage",
+    )
+>>>>>>> Stashed changes

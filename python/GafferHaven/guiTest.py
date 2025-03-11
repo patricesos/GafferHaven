@@ -62,15 +62,15 @@ class MainWindow(QWidget):
         self.top_bar_vbox.addWidget(self.category_cbx)
         self.left_side_vbox.addWidget(self.top_bar)
 
-        self.local_page = AssetGridBox(self, "local_hdris")
-        self.web_page = AssetGridBox(self, "web_hdris")
+        self.local_hdris_form = AssetGridBox(self, "local_hdris")
+        self.web_hdris_form = AssetGridBox(self, "web_hdris")
 
         self.tabs = QTabWidget()
         self.tabs.setFixedSize(self.icons_per_row * self.icon_width * 1.1, 780)
-        self.tabs.addTab(self.local_page, "Downloaded")
-        self.tabs.addTab(self.web_page, "Web")
+        self.tabs.addTab(self.local_hdris_form, "Downloaded")
+        self.tabs.addTab(self.web_hdris_form, "Web")
         self.left_side_vbox.addWidget(self.tabs)
-        self.tabs.currentChanged.connect(self.on_tab_change)
+        # self.tabs.currentChanged.connect(self.on_tab_change)
 
         self.hor_box.addWidget(self.left_side)
 
@@ -86,12 +86,12 @@ class MainWindow(QWidget):
     def on_tab_change(self, tabIndex):
         if tabIndex == 0:
             self.library.reload_local_db()
-            self.local_page.refresh()
+            self.local_hdris_form.refresh()
             self.category_cbx.refresh()
 
         if tabIndex == 1:
             self.library.reload_web()
-            self.web_page.refresh()
+            self.web_hdris_form.refresh()
             self.category_cbx.refresh()
 
 
@@ -118,9 +118,9 @@ class CategoriesComboBox(QComboBox):
     def on_changed(self, value):
         self.main_window.category_filter = value
         if self.main_window.tabs.currentIndex() == 0:
-            self.main_window.local_page.refresh()
+            self.main_window.local_hdris_form.refresh()
         elif self.main_window.tabs.currentIndex() == 1:
-            self.main_window.web_page.refresh()
+            self.main_window.web_hdris_form.refresh()
 
 
 class AssetGridBox(QWidget):
